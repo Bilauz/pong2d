@@ -6,7 +6,7 @@ public class Jogadores : MonoBehaviour
 {
     public float velocidadeDoJogador;
 
-    public bool Jogador1;
+    public bool jogador1;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,10 @@ public class Jogadores : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (jogador1 == true)
+        {
+            MovimentoDoJogador1();
+        }
 
     }
 
@@ -25,6 +29,11 @@ public class Jogadores : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector2.up * velocidadeDoJogador * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(Vector2.down * velocidadeDoJogador * Time.deltaTime);
         }
     }
 }
