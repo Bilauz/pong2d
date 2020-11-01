@@ -8,6 +8,9 @@ public class Jogadores : MonoBehaviour
 
     public bool jogador1;
 
+    public float yMinimo;
+    public float yMaximo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class Jogadores : MonoBehaviour
 
     public void MovimentoDoJogador1()
     {
+        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, yMinimo, yMaximo));
+
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector2.up * velocidadeDoJogador * Time.deltaTime);
@@ -44,6 +49,8 @@ public class Jogadores : MonoBehaviour
 
     public void MovimentoDoJogador2()
     {
+        transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, yMinimo, yMaximo));
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(Vector2.up * velocidadeDoJogador * Time.deltaTime);
