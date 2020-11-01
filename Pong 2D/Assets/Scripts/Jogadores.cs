@@ -22,6 +22,11 @@ public class Jogadores : MonoBehaviour
             MovimentoDoJogador1();
         }
 
+        if (jogador1 == false)
+        {
+            MovimentoDoJogador2();
+        }
+
     }
 
     public void MovimentoDoJogador1()
@@ -32,6 +37,19 @@ public class Jogadores : MonoBehaviour
         }
 
         if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(Vector2.down * velocidadeDoJogador * Time.deltaTime);
+        }
+    }
+
+    public void MovimentoDoJogador2()
+    {
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.Translate(Vector2.up * velocidadeDoJogador * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(Vector2.down * velocidadeDoJogador * Time.deltaTime);
         }
